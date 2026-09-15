@@ -1,13 +1,35 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>chatapp</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f3f4ef">
+  <title>Mini Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">✦</span><span>mini</span></div>
+      <button class="new-chat" id="new-chat"><span>+</span> New conversation</button>
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav-item active" href="#chat"><span class="nav-icon">◈</span> Research</a>
+        <a class="nav-item" href="#saved"><span class="nav-icon">⌑</span> Saved notes <span class="nav-count">0</span></a>
+      </nav>
+      <div class="sidebar-foot"><div class="privacy-dot"></div><div><strong>Private by default</strong><small>Your chats stay in this browser.</small></div></div>
+    </aside>
+    <main class="main" id="chat">
+      <header class="topbar"><button class="icon-button menu-button" id="menu" aria-label="Open menu">☰</button><div class="topbar-status"><span class="pulse"></span> Ready to research</div><div class="top-actions"><button class="icon-button" id="theme" aria-label="Toggle theme">◐</button><button class="avatar" aria-label="Profile">Y</button></div></header>
+      <section class="conversation" id="conversation">
+        <div class="welcome" id="welcome"><p class="kicker">Good afternoon, Y</p><h1>What are we<br><em>curious</em> about?</h1><p class="welcome-copy">A calm place to think, learn, and find your next useful answer.</p><div class="suggestions"><button data-prompt="What are the most interesting things happening in technology this week?">What's happening in tech?</button><button data-prompt="Help me turn a rough idea into a clear plan.">Shape an idea</button><button data-prompt="Teach me something surprising in two minutes.">Surprise me</button></div></div>
+        <div class="messages" id="messages" aria-live="polite"></div>
+      </section>
+      <section class="composer-wrap"><form class="composer" id="composer"><textarea id="input" rows="1" placeholder="Ask anything..." aria-label="Message"></textarea><button class="send-button" id="send" type="submit" aria-label="Send message"><span>↑</span></button></form><div class="composer-meta"><span>Enter to send</span><span class="connection"><i></i> Browser session</span></div></section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
 </html>
